@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رزومه - نوید غلامی</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* تعریف متغیرهای رنگ */
+        :root {
+            --navy: #0A2647;
+            --light-navy: #144272;
+            --orange: #FF6B35;
+            --light-orange: #FF8C42;
+            --white: #F8F9FA;
+            --gray: #E9ECEF;
+        }
+        
+        /* استایل‌های پایه */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--white);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* استایل هدر و پروفایل */
+        header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 1rem 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .profile-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--orange);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .profile-text {
+            margin-top: 2rem;
+            max-width: 600px;
+        }
+        
+        .profile-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+        
+        .profile-text p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* انیمیشن برای هدر */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* استایل بخش‌های اصلی */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            color: var(--navy);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--orange);
+            border-radius: 2px;
+        }
+        
+        /* استایل بخش درباره من */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            background: var(--gray);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* استایل بخش رزومه */
+        .resume-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .resume-item {
+            background: var(--gray);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .resume-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .resume-item h3 {
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        .resume-item .date {
+            color: var(--orange);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        /* استایل فوتر و اطلاعات تماس */
+        footer {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .contact-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--white);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: var(--orange);
+            color: var(--white);
+            border-radius: 50%;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: var(--white);
+            color: var(--orange);
+            transform: translateY(-5px);
+        }
+        
+        /* رسپانسیو کردن سایت */
+        @media (max-width: 768px) {
+            .profile-text h1 {
+                font-size: 2rem;
+            }
+            
+            .profile-text p {
+                font-size: 1rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- هدر و بخش پروفایل -->
+    <header>
+        <div class="profile-container">
+            <img src="profile.png" alt="نوید غلامی" class="profile-img floating">
+            <div class="profile-text">
+                <h1>نوید غلامی</h1>
+                <p>توسعه‌دهنده پایتون و علاقه‌مند به تکنولوژی</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- بخش درباره من -->
+    <section id="about">
+        <div class="container">
+            <h2>درباره من</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>من یک توسعه‌دهنده پایتون با تجربه در توسعه ربات‌های تلگرامی و برنامه‌های تحت وب هستم. علاقه زیادی به یادگیری ماشین و هوش مصنوعی دارم و همیشه به دنبال فرصت‌هایی برای بهبود مهارت‌هایم هستم.</p>
+                    <p>علاوه بر برنامه‌نویسی، به طراحی UX/UI و تجربه کاربری علاقه دارم و سعی می‌کنم در هر پروژه‌ای بهترین تجربه کاربری را ارائه دهم.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش رزومه -->
+    <section id="resume">
+        <div class="container">
+            <h2>رزومه من</h2>
+            <div class="resume-content">
+                <div class="resume-item">
+                    <h3>تحصیلات</h3>
+                    <span class="date">1402 - 1403</span>
+                    <p>مدرک بین المللی python</p>
+                    <p>مرکز فنی حرفه ای شهید رهبری</p>
+                </div>
+                <div class="resume-item">
+                    <h3>تجربه کاری</h3>
+                    <span class="date">1400 - حال حاضر</span>
+                    <p>توسعه‌دهنده پایتون</p>
+                    <p>توسعه دهنده ربات‌های تلگرامی</p>
+                </div>
+                <div class="resume-item">
+                    <h3>مهارت‌ها</h3>
+                    <p>پایتون، Django، Flask</p>
+                    <p>HTML, CSS, JavaScript</p>
+                    <p>هوش مصنوعی و یادگیری ماشین</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- فوتر و اطلاعات تماس -->
+    <footer>
+        <div class="contact-card">
+            <h3>راه های ارتباط با من</h3>
+            <div class="social-links">
+                <a href="https://t.me/telnavid" class="social-link">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="https://instagram.com/telnavid" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.io/navidtel" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- اسکریپت انیمیشن -->
+    <script>
+        // انیمیشن برای عناصر هنگام اسکرول
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.resume-item, .about-text');
+            
+            function checkScroll() {
+                animatedElements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if (elementPosition < screenPosition) {
+                        element.style.opacity = 1;
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            // تنظیمات اولیه برای انیمیشن
+            animatedElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            });
+            
+            // بررسی موقعیت اسکرول
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // بررسی موقعیت اولیه
+        });
+    </script>
+</body>
+</html>
